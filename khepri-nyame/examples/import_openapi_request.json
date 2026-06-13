@@ -1,0 +1,5 @@
+{
+  "source_type": "openapi",
+  "name": "sample-openapi",
+  "content": "openapi: 3.0.0\ninfo:\n  title: Example API\n  version: 1.0.0\nservers:\n  - url: https://api.example.test\npaths:\n  /users/{userId}:\n    get:\n      summary: Get user by ID\n      parameters:\n        - name: userId\n          in: path\n          required: true\n          schema:\n            type: string\n  /users/{userId}/role:\n    patch:\n      summary: Update user role\n      requestBody:\n        required: true\n  /search:\n    get:\n      parameters:\n        - name: q\n          in: query\n          schema:\n            type: string\n  /webhooks/callback:\n    post:\n      requestBody:\n        required: true\n"
+}

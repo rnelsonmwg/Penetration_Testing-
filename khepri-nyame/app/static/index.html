@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="clean_enterprise">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khepri Nyame</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Local-first · Safe-by-default · Multi-agent</p>
+      <h1>Khepri Nyame</h1>
+      <p class="subtitle">A mysterious bug hunting and API security testing workbench inspired by Khepri's transformation and Nyame's sky-wide visibility.</p>
+    </div>
+    <div class="scarab" aria-hidden="true">𓆣</div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>1. Choose your operating mode</h2>
+      <div class="radio-row">
+        <label><input type="radio" name="mode" value="guided_wizard" checked> Guided wizard</label>
+        <label><input type="radio" name="mode" value="autonomous_agent"> Autonomous agent</label>
+        <label><input type="radio" name="mode" value="modular_toolkit"> Modular toolkit</label>
+      </div>
+      <h2>2. Choose your theme</h2>
+      <div class="radio-row">
+        <label><input type="radio" name="theme" value="clean_enterprise" checked> Clean enterprise</label>
+        <label><input type="radio" name="theme" value="bug_bounty_toolkit"> Bug bounty toolkit</label>
+        <label><input type="radio" name="theme" value="cyber_ops"> Cyber ops</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Create engagement</h2>
+      <label>Name <input id="engagementName" value="Local API Review" /></label>
+      <label>Scope <input id="scope" value="https://api.example.test" /></label>
+      <label>Authorization statement <textarea id="authz">I own, manage, or have explicit written permission to test the listed assets using safe validation only.</textarea></label>
+      <button onclick="createEngagement()">Create</button>
+      <p id="engagementStatus" class="status"></p>
+    </section>
+
+    <section class="card wide">
+      <h2>4. Import artifact</h2>
+      <div class="split">
+        <label>Type
+          <select id="sourceType">
+            <option value="openapi">OpenAPI / Swagger</option>
+            <option value="postman">Postman</option>
+            <option value="har">HAR</option>
+            <option value="burp">Burp</option>
+            <option value="graphql">GraphQL schema</option>
+            <option value="raw_url">Raw URLs</option>
+            <option value="notes">Notes</option>
+          </select>
+        </label>
+        <label>Name <input id="artifactName" value="sample-openapi" /></label>
+      </div>
+      <textarea id="artifactContent" class="code" spellcheck="false">openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+servers:
+  - url: https://api.example.test
+paths:
+  /users/{userId}:
+    get:
+      summary: Get user
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+  /webhooks/callback:
+    post:
+      requestBody:
+        required: true</textarea>
+      <button onclick="importArtifact()">Import</button>
+      <button onclick="planWorkflow()">Generate Plan</button>
+      <button onclick="runWorkflow()">Run Safe Analysis</button>
+      <pre id="output"></pre>
+    </section>
+
+    <section class="card wide">
+      <h2>5. Reports</h2>
+      <div class="button-row">
+        <button onclick="downloadReport('markdown')">Markdown</button>
+        <button onclick="downloadReport('html')">HTML</button>
+        <button onclick="downloadReport('pdf')">PDF</button>
+        <button onclick="downloadReport('json')">JSON</button>
+        <button onclick="downloadReport('csv')">CSV</button>
+        <button onclick="downloadReport('executive')">Executive</button>
+        <button onclick="downloadReport('jira')">Jira</button>
+        <button onclick="downloadReport('github')">GitHub</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Khepri Nyame enforces authorization-first workflows. Active testing requires explicit human approval and remains out of scope for this MVP implementation.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

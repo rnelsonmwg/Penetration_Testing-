@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+servers:
+  - url: https://api.example.test
+paths:
+  /users/{userId}:
+    get:
+      summary: Get user by ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+  /users/{userId}/role:
+    patch:
+      summary: Update user role
+      requestBody:
+        required: true
+  /search:
+    get:
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+  /webhooks/callback:
+    post:
+      requestBody:
+        required: true
