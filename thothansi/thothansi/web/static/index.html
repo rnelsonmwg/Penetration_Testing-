@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="modern">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thothansi — Recon & Triage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <span class="glyph" id="brandGlyph">◆</span>
+        <div>
+          <h1>Thothansi</h1>
+          <div class="tagline">the weaver &amp; the scribe</div>
+        </div>
+      </div>
+      <div class="theme-switch" id="themeSwitch">
+        <button data-theme-name="modern" aria-pressed="true">Modern</button>
+        <button data-theme-name="mythic" aria-pressed="false">Mythic</button>
+      </div>
+    </header>
+
+    <div class="notice">
+      <b>Authorized testing only.</b> Thothansi acts solely on targets in your scope file and
+      performs passive reconnaissance. Findings are leads for manual verification, not confirmed
+      vulnerabilities.
+    </div>
+
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <div>
+        <section class="card">
+          <h2><span class="idx">01</span> Scope</h2>
+          <div class="engagement" id="engagement"></div>
+          <ul class="scope-list" id="scopeList"></ul>
+          <label for="scopeInput">Add to scope (domain, *.wildcard, IP, CIDR)</label>
+          <div class="row">
+            <input type="text" id="scopeInput" placeholder="api.example.com" />
+            <button class="btn secondary" id="scopeAdd" style="flex:0 0 auto;">Add</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2><span class="idx">02</span> AI Providers</h2>
+          <div id="providerList"></div>
+          <label for="providerSelect">Active provider for this run</label>
+          <select id="providerSelect"></select>
+        </section>
+
+        <section class="card history">
+          <h2><span class="idx">03</span> Past runs</h2>
+          <ul id="runHistory"><li class="scope-empty">No saved runs yet.</li></ul>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <section class="card">
+          <h2><span class="idx">04</span> New run</h2>
+          <label for="targets">Targets (one per line, must be in scope)</label>
+          <textarea id="targets" placeholder="example.com&#10;api.example.com"></textarea>
+          <div class="check"><input type="checkbox" id="doTriage" checked /><label for="doTriage" style="margin:0;">Run AI triage</label></div>
+          <div class="check"><input type="checkbox" id="interactive" /><label for="interactive" style="margin:0;">Step-gated (interactive) — TUI/CLI only</label></div>
+          <div style="margin-top:14px;">
+            <button class="btn" id="runBtn">Weave the web ▸</button>
+          </div>
+          <div class="log" id="log" style="margin-top:14px; display:none;"></div>
+        </section>
+
+        <section class="card" id="resultsCard" style="display:none;">
+          <h2><span class="idx">05</span> The ledger <span class="muted" id="runLabel"></span></h2>
+          <div class="ledger" id="ledger"></div>
+
+          <div class="tabs" style="margin-top:18px;">
+            <button data-tab="findings" aria-selected="true">Findings</button>
+            <button data-tab="assets" aria-selected="false">Assets</button>
+          </div>
+          <div id="tab-findings"></div>
+          <div id="tab-assets" style="display:none;"></div>
+          <div style="margin-top:14px;">
+            <button class="btn secondary" id="reportBtn">View Markdown report</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

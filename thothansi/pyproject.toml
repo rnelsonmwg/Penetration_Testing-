@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thothansi"
+version = "0.1.0"
+description = "AI-assisted passive reconnaissance & triage for authorized security testing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Thothansi" }]
+keywords = ["security", "recon", "osint", "bug-bounty", "pentest", "triage"]
+
+dependencies = [
+    "dnspython>=2.4",
+    "httpx>=0.27",
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.6",
+    "pydantic-settings>=2.2",
+    "pyyaml>=6.0",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "textual>=0.60",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+thothansi = "thothansi.cli:main"
+
+[project.urls]
+Homepage = "https://example.invalid/thothansi"
+
+[tool.setuptools.packages.find]
+include = ["thothansi*"]
+
+[tool.setuptools.package-data]
+"thothansi.web" = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

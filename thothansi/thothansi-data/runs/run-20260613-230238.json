@@ -1,0 +1,322 @@
+{
+  "id": "run-20260613-230238",
+  "targets": [
+    "nornoricconsulting.com"
+  ],
+  "results": [
+    {
+      "module": "dns",
+      "target": "nornoricconsulting.com",
+      "assets": [
+        {
+          "type": "ip",
+          "value": "198.49.23.144",
+          "source": "dns",
+          "attributes": {
+            "record": "A",
+            "host": "nornoricconsulting.com"
+          },
+          "discovered_at": "2026-06-13T23:02:39.000783Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com A 198.49.23.144",
+          "source": "dns",
+          "attributes": {
+            "rtype": "A"
+          },
+          "discovered_at": "2026-06-13T23:02:39.000797Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com MX 10 alt3.aspmx.l.google.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "MX"
+          },
+          "discovered_at": "2026-06-13T23:02:39.197940Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com MX 10 alt4.aspmx.l.google.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "MX"
+          },
+          "discovered_at": "2026-06-13T23:02:39.197970Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com MX 1 aspmx.l.google.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "MX"
+          },
+          "discovered_at": "2026-06-13T23:02:39.197983Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com MX 5 alt1.aspmx.l.google.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "MX"
+          },
+          "discovered_at": "2026-06-13T23:02:39.197992Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com MX 5 alt2.aspmx.l.google.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "MX"
+          },
+          "discovered_at": "2026-06-13T23:02:39.198005Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com NS ns-cloud-e4.googledomains.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "NS"
+          },
+          "discovered_at": "2026-06-13T23:02:39.281460Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com NS ns-cloud-e1.googledomains.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "NS"
+          },
+          "discovered_at": "2026-06-13T23:02:39.281480Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com NS ns-cloud-e3.googledomains.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "NS"
+          },
+          "discovered_at": "2026-06-13T23:02:39.281507Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com NS ns-cloud-e2.googledomains.com.",
+          "source": "dns",
+          "attributes": {
+            "rtype": "NS"
+          },
+          "discovered_at": "2026-06-13T23:02:39.281515Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com TXT \"v=spf1 include:_spf.google.com ~all\"",
+          "source": "dns",
+          "attributes": {
+            "rtype": "TXT"
+          },
+          "discovered_at": "2026-06-13T23:02:39.335239Z"
+        },
+        {
+          "type": "dns_record",
+          "value": "nornoricconsulting.com SOA ns-cloud-e1.googledomains.com. cloud-dns-hostmaster.google.com. 5 21600 3600 259200 300",
+          "source": "dns",
+          "attributes": {
+            "rtype": "SOA"
+          },
+          "discovered_at": "2026-06-13T23:02:39.461129Z"
+        }
+      ],
+      "findings": [
+        {
+          "id": "7775a0a7b11e",
+          "title": "No CAA record",
+          "description": "nornoricconsulting.com has no CAA record restricting certificate issuance.",
+          "severity": "info",
+          "asset": "nornoricconsulting.com",
+          "source": "dns",
+          "tags": [
+            "dns",
+            "tls",
+            "caa"
+          ],
+          "evidence": {},
+          "triage_severity": null,
+          "triage_rationale": null,
+          "triage_recommendation": null,
+          "triage_confidence": null,
+          "created_at": "2026-06-13T23:02:39.535288Z"
+        }
+      ],
+      "started_at": "2026-06-13T23:02:38.917435Z",
+      "finished_at": "2026-06-13T23:02:39.535422Z",
+      "error": null
+    },
+    {
+      "module": "fingerprint",
+      "target": "nornoricconsulting.com",
+      "assets": [
+        {
+          "type": "url",
+          "value": "https://www.nornoricconsulting.com/",
+          "source": "fingerprint",
+          "attributes": {
+            "status": 200,
+            "final_after_redirect": true
+          },
+          "discovered_at": "2026-06-13T23:02:39.988401Z"
+        }
+      ],
+      "findings": [
+        {
+          "id": "9150c892e2c2",
+          "title": "Missing security header: strict-transport-security",
+          "description": "https://www.nornoricconsulting.com/ does not set the 'strict-transport-security' response header.",
+          "severity": "medium",
+          "asset": "nornoricconsulting.com",
+          "source": "fingerprint",
+          "tags": [
+            "fingerprint",
+            "headers",
+            "hardening"
+          ],
+          "evidence": {
+            "present_headers": [
+              "cache-control",
+              "content-encoding",
+              "content-security-policy",
+              "content-type",
+              "cross-origin-opener-policy",
+              "cross-origin-resource-policy",
+              "date",
+              "document-policy",
+              "expires",
+              "pragma",
+              "referrer-policy",
+              "reporting-endpoints",
+              "server",
+              "transfer-encoding",
+              "vary",
+              "x-content-type-options",
+              "x-frame-options",
+              "x-xss-protection"
+            ]
+          },
+          "triage_severity": null,
+          "triage_rationale": null,
+          "triage_recommendation": null,
+          "triage_confidence": null,
+          "created_at": "2026-06-13T23:02:39.988772Z"
+        },
+        {
+          "id": "9e06ed6a65ad",
+          "title": "Missing security header: permissions-policy",
+          "description": "https://www.nornoricconsulting.com/ does not set the 'permissions-policy' response header.",
+          "severity": "info",
+          "asset": "nornoricconsulting.com",
+          "source": "fingerprint",
+          "tags": [
+            "fingerprint",
+            "headers",
+            "hardening"
+          ],
+          "evidence": {
+            "present_headers": [
+              "cache-control",
+              "content-encoding",
+              "content-security-policy",
+              "content-type",
+              "cross-origin-opener-policy",
+              "cross-origin-resource-policy",
+              "date",
+              "document-policy",
+              "expires",
+              "pragma",
+              "referrer-policy",
+              "reporting-endpoints",
+              "server",
+              "transfer-encoding",
+              "vary",
+              "x-content-type-options",
+              "x-frame-options",
+              "x-xss-protection"
+            ]
+          },
+          "triage_severity": null,
+          "triage_rationale": null,
+          "triage_recommendation": null,
+          "triage_confidence": null,
+          "created_at": "2026-06-13T23:02:39.988853Z"
+        }
+      ],
+      "started_at": "2026-06-13T23:02:38.920263Z",
+      "finished_at": "2026-06-13T23:02:39.988894Z",
+      "error": null
+    },
+    {
+      "module": "subdomains",
+      "target": "nornoricconsulting.com",
+      "assets": [
+        {
+          "type": "subdomain",
+          "value": "nornoricconsulting.com",
+          "source": "subdomains",
+          "attributes": {
+            "via": "passive-dns"
+          },
+          "discovered_at": "2026-06-13T23:02:40.029407Z"
+        },
+        {
+          "type": "subdomain",
+          "value": "www.nornoricconsulting.com",
+          "source": "subdomains",
+          "attributes": {
+            "via": "passive-dns"
+          },
+          "discovered_at": "2026-06-13T23:02:40.029477Z"
+        }
+      ],
+      "findings": [
+        {
+          "id": "a93499ab5a58",
+          "title": "2 subdomains via passive sources",
+          "description": "Aggregated 2 in-scope subdomains for nornoricconsulting.com.",
+          "severity": "info",
+          "asset": "nornoricconsulting.com",
+          "source": "subdomains",
+          "tags": [
+            "recon",
+            "subdomains",
+            "passive-dns"
+          ],
+          "evidence": {
+            "sample": [
+              "nornoricconsulting.com",
+              "www.nornoricconsulting.com"
+            ],
+            "source_errors": []
+          },
+          "triage_severity": null,
+          "triage_rationale": null,
+          "triage_recommendation": null,
+          "triage_confidence": null,
+          "created_at": "2026-06-13T23:02:40.029526Z"
+        }
+      ],
+      "started_at": "2026-06-13T23:02:38.919585Z",
+      "finished_at": "2026-06-13T23:02:40.029567Z",
+      "error": null
+    },
+    {
+      "module": "crtsh",
+      "target": "nornoricconsulting.com",
+      "assets": [],
+      "findings": [],
+      "started_at": "2026-06-13T23:02:38.918318Z",
+      "finished_at": "2026-06-13T23:02:54.488853Z",
+      "error": "RuntimeError: crt.sh query failed: The read operation timed out"
+    }
+  ],
+  "started_at": "2026-06-13T23:02:38.914946Z",
+  "finished_at": "2026-06-13T23:03:54.652422Z"
+}

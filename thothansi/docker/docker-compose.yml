@@ -1,0 +1,36 @@
+services:
+  thothansi:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: thothansi:0.1.0
+    ports:
+      - "8000:8000"
+    volumes:
+      # Your authorized scope and config (create from the .example files).
+      - ../config:/app/config
+      # Persist runs/reports across container restarts.
+      - thothansi-data:/app/thothansi-data
+    environment:
+      # Point at the Ollama service below, or set a hosted provider key.
+      - THOTHANSI_PROVIDER=${THOTHANSI_PROVIDER:-ollama}
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://ollama:11434}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - XAI_API_KEY=${XAI_API_KEY:-}
+    depends_on:
+      - ollama
+
+  # Optional local model backend for fully-offline triage.
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+
+volumes:
+  thothansi-data:
+  ollama-models:
